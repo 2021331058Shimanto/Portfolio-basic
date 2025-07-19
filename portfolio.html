@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shimanto</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #f5f7fa;
+    color: #333;
+    scroll-behavior: smooth;
+  }
+
+  /* Navbar */
+  header {
+    position: fixed;
+    width: 100%;
+    background: #24292e;
+    color: white;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  nav {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+
+  nav .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+
+  nav ul li {
+    margin-left: 2rem;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #1abc9c;
+  }
+
+  /* Responsive menu */
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+    }
+  }
+
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 100px auto 40px; /* 100px top margin for fixed nav */
+    padding: 0 20px;
+  }
+
+  /* Profile Section */
+  .profile {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .profile img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #1abc9c;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
+  }
+
+  .profile h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .profile p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+
+  /* About Section */
+  section {
+    margin-bottom: 60px;
+  }
+
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1abc9c;
+    border-bottom: 3px solid #1abc9c;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  section p {
+    font-size: 1.1rem;
+    color: #444;
+    max-width: 700px;
+  }
+
+  /* Skills */
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 700px;
+  }
+
+  .skill {
+    flex: 1 1 45%;
+  }
+
+  .skill-name {
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .progress {
+    height: 14px;
+    background: #1abc9c;
+    border-radius: 20px 0 0 20px;
+  }
+
+  /* Projects */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .project-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(26,188,156,0.3);
+  }
+
+  .project-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  .project-content {
+    padding: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #1abc9c;
+  }
+
+  .project-desc {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-link {
+    text-decoration: none;
+    color: #24292e;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+
+  .project-link:hover {
+    border-color: #1abc9c;
+  }
+
+  /* Achievements */
+  .achievements-list {
+    list-style: disc inside;
+    max-width: 700px;
+    color: #444;
+  }
+
+  /* Contact */
+  .contact-form {
+    max-width: 700px;
+  }
+
+  .contact-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    resize: vertical;
+  }
+
+  .contact-form button {
+    background: #1abc9c;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.3s ease;
+  }
+
+  .contact-form button:hover {
+    background: #159e85;
+  }
+
+  /* Social Icons */
+  .social-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 20px;
+  }
+
+  .social-links a {
+    color: #24292e;
+    font-size: 1.6rem;
+    transition: color 0.3s ease;
+  }
+
+  .social-links a:hover {
+    color: #1abc9c;
+  }
+
+  /* Smooth scroll offset fix for fixed nav */
+  section {
+    scroll-margin-top: 80px;
+  }
+</style>
+<!-- For social icons fontawesome -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Shimanto</div>
+    <ul>
+      <li><a href="#profile">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container">
+  <!-- Profile -->
+  <section id="profile" class="profile">
+    <img src="Shimanto.jpg" alt="Profile Picture" />
+    <h1>Tasnim Hasan Shimanto</h1>
+    <p>Programmer & Tech Enthusiast</p>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+     I am a passionate and dedicated developer currently pursuing a degree in Computer Science and Engineering at Shahjalal University of Science and Technology (SUST). I have a strong interest in software development, particularly in creating modern, user-friendly web applications. My enthusiasm for technology drives me to constantly explore new tools, frameworks, and best practices. Beyond academics, I enjoy working on personal projects and continuously enhancing my skills to stay updated with the latest trends in the tech industry.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill">
+        <div class="skill-name">HTML & CSS</div>
+        <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Java</div>
+        <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Python</div>
+        <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">C and C++</div>
+        <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img class="project-img" src="Screenshot 2025-07-20 013333.png" alt="Project 1" />
+        <div class="project-content">
+          <h3 class="project-title">Portfolio Website</h3>
+          <p class="project-desc">A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
+          <a href="#" class="project-link" target="_blank" rel="noopener">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-img" src="Screenshot 2025-07-20 014306.png" alt="Project 2" />
+        <div class="project-content">
+          <h3 class="project-title">A Spaceshooting Game</h3>
+          <p class="project-desc">A React-based task management app to organize daily to-dos.</p>
+          <a href="https://github.com/Class-of-MMH/course150" class="project-link" target="_blank" rel="noopener">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-img" src="Screenshot 2025-07-20 014442.png" alt="Project 3" />
+        <div class="project-content">
+          <h3 class="project-title">A Game using Video sensing</h3>
+          <p class="project-desc">A full-stack blog platform with user authentication.</p>
+          <a href="https://scratch.mit.edu/projects/1070899645" class="project-link" target="_blank" rel="noopener">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <ul class="achievements-list">
+      <li>National Participant of NHSPC</li>
+       <li>Winner of Bangladesh Mathematical Olympiad Nationals 2019</li>
+      <li>Problem setter of Bangladesh Mathematical Olympiad</li>
+      <li>President of Boson Biggan Sangho</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form class="contact-form" action="mailto:your.email@example.com" method="POST" enctype="text/plain">
+      <label for="name">Name</label>
+      <input id="name" type="text" name="Name" placeholder="Your Name" required />
+
+      <label for="email">Email</label>
+      <input id="email" type="email" name="Email" placeholder="Your Email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="Message" rows="5" placeholder="Your message..." required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+     <br>
+     <h3>Reach Me-</h3>
+    <div class="social-links">
+      <a href="https://github.com/2021331058Shimanto" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/tasnim-hasan-shimanto-b2800b329" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://x.com/Shimanto_wx9" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
