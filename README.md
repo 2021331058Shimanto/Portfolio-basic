@@ -32,6 +32,26 @@ Full page in 2 images
 
 <img width="965" height="824" alt="image" src="https://github.com/user-attachments/assets/0bd0f1e2-bfdb-40bc-8b18-619c0883ad0b" />
 
+## How to Use
+
+- Clone the repository
+- Open `index.html` in your preferred browser
+- Explore the sections and projects
+
+---
+
+## Technologies Used
+
+- HTML5
+- CSS3 (Flexbox, Grid)
+- JavaScript (for animations and interactivity)
+- Font Awesome (for social media icons)
+
+---
+
+## Contact
+
+Feel free to reach out via email or connect with me on social media (links available in the footer of the site).
 
 
 
