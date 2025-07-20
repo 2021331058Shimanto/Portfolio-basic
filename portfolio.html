@@ -5,7 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Shimanto</title>
 <style>
-  /* Reset */
+  
+  .profile img,
+.project-card,
+.skill,
+.social-links a,
+.contact-form button {
+  transition: transform 0.3s ease;
+}
+
+/* Profile Image Hover */
+.profile img:hover {
+  transform: scale(1.5);
+}
+
+/* Project Cards Hover (already present but keep consistent) */
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+/* Skills Hover */
+.skill:hover {
+  transform: scale(1.05);
+}
+
+/* Social Links Hover */
+.social-links a:hover {
+  transform: scale(1.2);
+}
+
+/* Contact Button Hover */
+.contact-form button:hover {
+  transform: scale(1.05);
+}
   * {
     margin: 0;
     padding: 0;
@@ -15,8 +47,8 @@
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background: #f5f7fa;
-    color: #333;
+    background: #202732d7;
+    color: #f1f1f1;
     scroll-behavior: smooth;
   }
 
@@ -76,9 +108,10 @@
 
   /* Container */
   .container {
-    max-width: 900px;
-    margin: 100px auto 40px; /* 100px top margin for fixed nav */
-    padding: 0 20px;
+    width: 100%;
+    max-width: 1600px;
+    margin: 100px auto 40px;
+    padding: 0 60px;
   }
 
   /* Profile Section */
@@ -104,7 +137,10 @@
 
   .profile p {
     font-size: 1.2rem;
-    color: #555;
+    color: #e1d9d9;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: center;
   }
 
   /* About Section */
@@ -122,9 +158,10 @@
   }
 
   section p {
-    font-size: 1.1rem;
-    color: #444;
-    max-width: 700px;
+     font-size: 1.1rem;
+    color: #ffffff;
+    max-width: 100%;   /* Allow full width */
+    line-height: 1.8;
   }
 
   /* Skills */
@@ -132,7 +169,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    max-width: 700px;
+    max-width: 100%;
   }
 
   .skill {
@@ -215,7 +252,7 @@
   .achievements-list {
     list-style: disc inside;
     max-width: 700px;
-    color: #444;
+    color: #ffffff;
   }
 
   /* Contact */
@@ -264,7 +301,7 @@
   }
 
   .social-links a {
-    color: #24292e;
+    color: #ffffff;
     font-size: 1.6rem;
     transition: color 0.3s ease;
   }
@@ -355,7 +392,7 @@
         <img class="project-img" src="Screenshot 2025-07-20 014306.png" alt="Project 2" />
         <div class="project-content">
           <h3 class="project-title">A Spaceshooting Game</h3>
-          <p class="project-desc">A React-based task management app to organize daily to-dos.</p>
+          <p class="project-desc">A fun to play spaceshooting Game using only c and c++ </p>
           <a href="https://github.com/Class-of-MMH/course150" class="project-link" target="_blank" rel="noopener">View Project</a>
         </div>
       </div>
@@ -363,7 +400,7 @@
         <img class="project-img" src="Screenshot 2025-07-20 014442.png" alt="Project 3" />
         <div class="project-content">
           <h3 class="project-title">A Game using Video sensing</h3>
-          <p class="project-desc">A full-stack blog platform with user authentication.</p>
+          <p class="project-desc">Controlling your game only using your hand gestures is so much better</p>
           <a href="https://scratch.mit.edu/projects/1070899645" class="project-link" target="_blank" rel="noopener">View Project</a>
         </div>
       </div>
@@ -402,8 +439,9 @@
       <a href="https://github.com/2021331058Shimanto" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://www.linkedin.com/in/tasnim-hasan-shimanto-b2800b329" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
       <a href="https://x.com/Shimanto_wx9" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-       <a href="https://mail.google.com/mail/?view=cm&to=thshimanto658@gmail.com" target="_blank" rel="noopener">
+      <a href="https://mail.google.com/mail/?view=cm&to=thshimanto658@gmail.com" target="_blank" rel="noopener">
     <i class="fas fa-envelope"></i>
+</a>
     </div>
   </section>
 </main>
